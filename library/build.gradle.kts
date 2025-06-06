@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.vanniktech.mavenPublish)
 }
 
-group = "io.github.kotlin"
+group = "dev.baseio.kronkmp"
 version = "1.0.0"
 
 kotlin {
@@ -28,13 +28,19 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                //put your multiplatform dependencies here
+                implementation(kotlin("stdlib-common"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(libs.kotlin.test)
             }
+        }
+
+        val androidMain by getting {
+
         }
     }
 }
